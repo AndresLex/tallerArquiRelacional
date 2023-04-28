@@ -7,70 +7,141 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{../static/style.css}">
     <style>
-        h2{
-            color: red;
+        :root{
+            --main-color:#fff;
+        }
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+          font-family:'Roboto' , 'sans-serif';
+          overflow:hidden;
+        }
+
+        .main-header{
+          background: #4FB391;
+          width: 100%;
+          height:50px;
+        }
+
+        nav{
+          position: absolute;
+          left:0;
+          top:0;
+          width: 200px;
+          top:50px;
+          height:calc(100vh - 50px);
+          background:#2D6653;
+          transform:translateX(-100%);
+          transition:.4s ease;
+        }
+
+        .navigation li{
+          list-style:none;
+          width: 100%;
+          border-bottom: 1px solid rgba(255,255,255,.5);
+        }
+
+        .navigation a{
+          color:var(--main-color);
+          display: block;
+          line-height:3.5;
+          padding: 0 10px;
+          text-decoration:none;
+          transition:.4s ease;
+        }
+
+        .navigation a:hover{
+          transform:translateX(10%);
+        }
+
+        #btn-nav{
+          display: none;
+        }
+
+        #btn-nav:checked ~ nav{
+          transform:translateX(0);
+        }
+
+        .btn-nav{
+          color:var(--main-color);
+          font-size:30px;
+          position: absolute;
+          left:0;
+          top:0;
+          cursor:pointer;
+          padding:6.5px 15px;
+          transition:.2s ease;
+          background:rgba(0,0,0,.1);
+        }
+
+        .btn-nav:hover{
+          background:rgba(0,0,0,.3);
+        }
+
+        .contenido{
+            margin-top: 1vw;
+            margin-left: 15vw;
+            margin-right: 2vw;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <h2>Toggleable Tabs</h2>
-        <br>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
-            </li>
-        </ul>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">MENU</i></label>
+        <input type="checkbox" id="btn-nav">
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div id="home" class="container tab-pane active"><br>
-                <h3>HOME</h3>
-                <p>Estamos en el Home</p>
-            </div>
-            <div id="menu1" class="container tab-pane fade"><br>
-                <h3>Menu 1</h3>
-                <p>>Estamos en el Menu 1</p>
-            </div>
-            <div id="menu2" class="container tab-pane fade"><br>
-                <h3>Menu 2</h3>
-                <p>>Estamos en el Menu 2</p>
-            </div>
-        </div>
-    </div>
+        <nav>
+            <ul class="navigation">
+                <li><a th:href="@{/inicio}">Home</a></li>
+                <li><a th:href="@{/regisCli}">Nuevo Cliente</a></li>
+                <li><a href="">Registrar Pedido</a></li>
+                <li><a href="">Administrar</a></li>
+            </ul>
+        </nav>
 
-    <table>
-        <tr>
-            <th>Id Cliente</th>
-            <th>Nombre</th>
-        </tr>
-        <tr th:each="cliente: ${datosCli}" th:object="${cliente}">
-            <td th:text="*{idCliente}"></td>
-            <td th:text="*{nombre}"></td>
-        </tr>
-    </table>
+    </header>
 
-    <table>
-        <tr>
-            <th>Id Pedido</th>
-            <th>Fecha</th>
-            <th>Nombre</th>
-            <th>Cliente</th>
-        </tr>
-        <tr th:each="pedido: ${datosPed}" th:object="${pedido}">
-            <td th:text="*{idPedido}"></td>
-            <td th:text="*{fecha}"></td>
-            <td th:text="*{nombre}"></td>
-            <td th:text="*{cliente.nombre}"></td>
-        </tr>
-    </table>
+    <section class="contenido">
+
+        <table class="table table-dark table-hover">
+           <thead>
+                <tr>
+                    <th>Id Cliente</th>
+                    <th>Nombre</th>
+                </tr>
+           </thead>
+            <tbody>
+                <tr th:each="cliente: ${datosCli}" th:object="${cliente}">
+                    <td th:text="*{idCliente}"></td>
+                    <td th:text="*{nombre}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Id Pedido</th>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pedido: ${datosPed}" th:object="${pedido}">
+                    <td th:text="*{idPedido}"></td>
+                    <td th:text="*{fecha}"></td>
+                    <td th:text="*{nombre}"></td>
+                    <td th:text="*{cliente.nombre}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
     <div>
         <label for="selecCli">Seleccionar cliente: </label>
         <select name="selecCli" id="selecCli">

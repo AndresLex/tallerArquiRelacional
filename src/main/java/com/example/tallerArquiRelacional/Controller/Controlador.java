@@ -27,4 +27,10 @@ public class Controlador {
         model.addAttribute("datosPed", servPed.listar());
         return "index";
     }
+
+    @GetMapping("/regisCli")
+    public String registrarCliente(Model model){
+        model.addAttribute("title", "Registro Cliente");
+        return "registroCli";
+    }
 }
