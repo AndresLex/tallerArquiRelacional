@@ -2,7 +2,8 @@ package com.example.tallerArquiRelacional.Model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
+
+import java.sql.Date;
 
 @Data
 @Entity
@@ -12,9 +13,16 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPedido;
 
-    private Date fecha;
+    private Date fechaPedido;
+    private Date fechaEntrega;
 
-    private String nombre;
+    private String productos;
+
+    private double precio;
+
+    private String direccion;
+
+    private String ciudad;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente")

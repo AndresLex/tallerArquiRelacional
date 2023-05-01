@@ -1,3 +1,24 @@
-h2 {
-    color: red;
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
+
+.contenidoPed{
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.contenidoCli{
+    max-width: 70vw;
+    margin-left: 8vw;
+}
+
+button{
+    margin-top: 15px;
 }

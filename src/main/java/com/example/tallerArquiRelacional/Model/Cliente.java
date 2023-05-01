@@ -14,6 +14,16 @@ public class Cliente {
 
     private String nombre;
 
+    private String apellido;
+
+    private String direccion;
+
+    private String ciudad;
+
+    private String pais;
+
+    private int telefono;
+
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 }
