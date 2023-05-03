@@ -1,3 +1,4 @@
+/*Elaborado por: Andres Leonardo Camargo Cortes*/
 package com.example.tallerArquiRelacional.Repository;
 
 import com.example.tallerArquiRelacional.Model.Cliente;

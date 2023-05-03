@@ -41,10 +41,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -54,14 +50,14 @@
                 <form th:action="@{/guardarPed}" method="post" th:object="${pedido}">
                     <input type="hidden" th:field="*{idPedido}">
 
-                    <div class="form-group">
-                        <label for="selecCli" class="control-label">Seleccionar cliente: </label>
+                   <div class="form-group">
+                        <label for="selecCli" class="control-label" th:text="${labelSelec}">Seleccionar cliente: </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <label for="selecCli"><span class="input-group-text"><img src="https://img.icons8.com/dotty/24/null/client-management.png"/></span></label>
                             </div>
-                            <select th:field="*{cliente}" name="cliente" id="selecCli" class="form-control" required>
-                                <option th:each="cliente: ${datosCli}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+                            <select th:field="*{cliente.idCliente}" name="cliente" id="selecCli" class="form-control" required>
+                                <option th:each="cliente: ${datosCli}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}" selected></option>
                             </select>
                         </div>
                     </div>

@@ -1,3 +1,4 @@
+/*Elaborado por: Andres Leonardo Camargo Cortes*/
 package com.example.tallerArquiRelacional.Controller;
 
 import com.example.tallerArquiRelacional.InterfaceService.IClienteService;
@@ -42,6 +43,7 @@ public class Controlador {
         model.addAttribute("title", "Registro Pedido");
         model.addAttribute("title2", "Formulario Registro de Pedido");
         model.addAttribute("btnMsj", "Añadir Pedido");
+        model.addAttribute("labelSelec", "Seleccionar Cliente:");
         model.addAttribute("datosCli", servCli.listar());
         model.addAttribute("pedido", new Pedido());
         return "registroPed";
@@ -69,6 +71,7 @@ public class Controlador {
         model.addAttribute("title", "Edicion Pedido");
         model.addAttribute("title2", "Formulario Edicion de Pedido");
         model.addAttribute("btnMsj", "Editar Pedido");
+        model.addAttribute("labelSelec", "Cliente");
         model.addAttribute("datosCli", servCli.listar());
         model.addAttribute("pedido", servPed.editar(id));
         return "registroPed";

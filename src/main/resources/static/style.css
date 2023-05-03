@@ -22,3 +22,25 @@
 button{
     margin-top: 15px;
 }
+
+h2{
+    text-align: center;
+}
+
+.contentTab{
+    border: 2px solid DimGray;
+    margin: 5vh 1vw;
+    border-radius: 20px;
+    background-color: LightGray;
+}
+
+table{
+    border-radius: 15px;
+}
+
+th{
+    text-align: center;
+    color: #fbfbf2;
+    font-size: 18px;
+    font-weight: 550;
+}

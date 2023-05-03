@@ -41,68 +41,68 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                    </li>
                 </ul>
             </div>
         </div>
         <div class="col py-3">
             <section class="contenido">
-                <h2>Tabla de Clientes</h2>
-                <table class="table table-dark table-hover">
-                    <thead>
-                    <tr>
-                        <th>Id Cliente</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="cliente: ${datosCli}" th:object="${cliente}">
-                        <td th:text="*{idCliente}"></td>
-                        <td th:text="*{nombre}"></td>
-                        <td th:text="*{apellido}"></td>
-                        <td th:text="*{telefono}"></td>
-                        <td>
-                            <a class="btn btn-warning" th:href="@{/editarCli/} + *{idCliente}">Editar</a>
-                            <a class="btn btn-danger" th:href="@{/eliminarCli/} + *{idCliente}">Eliminar</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="contentTab">
+                    <h2>Tabla de Clientes</h2>
+                    <table class="table table-dark table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id Cliente</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="cliente: ${datosCli}" th:object="${cliente}">
+                            <td th:text="*{idCliente}"></td>
+                            <td th:text="*{nombre}"></td>
+                            <td th:text="*{apellido}"></td>
+                            <td th:text="*{telefono}"></td>
+                            <td>
+                                <a class="btn btn-warning" th:href="@{/editarCli/} + *{idCliente}">Editar</a>
+                                <a class="btn btn-danger" th:href="@{/eliminarCli/} + *{idCliente}">Eliminar</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                <h2>Tabla de Pedidos</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                    <tr>
-                        <th># Pedido</th>
-                        <th>Cliente</th>
-                        <th>Fecha Pedido</th>
-                        <th>Fecha Entrega</th>
-                        <th>Productos</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="pedido: ${datosPed}" th:object="${pedido}">
-                        <td th:text="*{idPedido}"></td>
-                        <td th:text="*{cliente.nombre}"></td>
-                        <td th:text="*{fechaPedido}"></td>
-                        <td th:text="*{fechaEntrega}"></td>
-                        <td th:text="*{productos}"></td>
-                        <td th:text="*{precio}"></td>
-                        <td>
-                            <a class="btn btn-warning" th:href="@{/editarPed/} + *{idPedido}">Editar</a>
-                            <a class="btn btn-danger" th:href="@{/eliminarPed/} + *{idPedido}">Eliminar</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="contentTab">
+                    <h2>Tabla de Pedidos</h2>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th># Pedido</th>
+                            <th>Cliente</th>
+                            <th>Fecha Pedido</th>
+                            <th>Fecha Entrega</th>
+                            <th>Productos</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pedido: ${datosPed}" th:object="${pedido}">
+                            <td th:text="*{idPedido}"></td>
+                            <td th:text="*{cliente.nombre}"></td>
+                            <td th:text="*{fechaPedido}"></td>
+                            <td th:text="*{fechaEntrega}"></td>
+                            <td th:text="*{productos}"></td>
+                            <td th:text="*{precio}"></td>
+                            <td>
+                                <a class="btn btn-warning" th:href="@{/editarPed/} + *{idPedido}">Editar</a>
+                                <a class="btn btn-danger" th:href="@{/eliminarPed/} + *{idPedido}">Eliminar</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </div>
     </div>

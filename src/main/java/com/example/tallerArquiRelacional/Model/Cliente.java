@@ -1,3 +1,4 @@
+/*Elaborado por: Andres Leonardo Camargo Cortes*/
 package com.example.tallerArquiRelacional.Model;
 
 import jakarta.persistence.*;
